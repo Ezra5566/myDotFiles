@@ -1,0 +1,745 @@
+"$schema" = 'https://starship.rs/config-schema.json' # editor autocomplete
+
+# NOTE: Unlike the Warp config, the right_format module was not used to
+
+# produce the right prompt. This is because that module places elements
+
+# on the same line as the input location. So fill is used instead.
+
+# This has been avoided by Warp's default behaviour of creating a new line.
+
+
+
+
+# === Prompt-wide configurations ===
+
+ palette = 'cyberpunk'  # 'cyberpunk'/'catppuccin_latte'/'catppuccin_mocha'/'catppuccin_frappe'/'catppuccin_macchiato'
+
+command_timeout = 1500       # Default timeout for commands is 500ms
+
+add_newline = true           # A blank line before prompt start
+
+
+
+
+format = """
+
+$username\
+
+$sudo\
+
+$hostname\
+
+$localip\
+
+$directory\
+
+$git_branch\
+
+$git_commit\
+
+$git_state\
+
+$git_status\
+
+$fill\
+
+$all$cmd_duration\
+
+$line_break\
+
+$character
+
+"""
+
+
+
+
+# === Misc. ===
+
+[fill]
+
+symbol = " "
+
+
+
+
+[character]
+
+success_symbol = "[󰅂](bold green)"
+
+error_symbol = "[󰅂](bold red)"
+
+vimcmd_symbol = "[󰅁](bold green)"
+
+vimcmd_replace_one_symbol = "[󰅁](bold purple)"
+
+vimcmd_replace_symbol = "[󰅁](bold purple)"
+
+vimcmd_visual_symbol = "[󰅁](bold yellow)"
+
+
+
+
+# === 1st Line: left hand side ===
+
+[username]
+
+disabled = false
+
+format = "[ $user]($style) "
+
+
+
+
+[sudo]
+
+disabled = false
+
+style = "bold rosewater"
+
+# symbol = '\[sudo\] '
+
+symbol = " "
+
+format = "[$symbol]($style)"
+
+
+
+
+[hostname]
+
+ssh_only = true
+
+ssh_symbol = " "
+
+# ssh_symbol = "󰣀 "
+
+format = "[$ssh_symbol$hostname ]($style)"
+
+
+
+
+[localip]
+
+disabled = false
+
+# only shown with SSH
+
+
+
+
+[directory]
+
+truncation_symbol = "…/"
+
+home_symbol = " ~"
+
+truncate_to_repo = false
+
+truncation_length = 5
+
+style = "bold blue"
+
+
+
+
+[directory.substitutions]
+
+"~/Projects/OpenUniversity/" = "  "
+
+"~/Projects/" = "  "
+
+"~/Work/" = "  "
+
+"~/.dotfiles/" = " "
+
+
+
+
+[git_branch]
+
+symbol = " "
+
+format = '[on](text dimmed) [$symbol$branch(:$remote_branch)]($style) '
+
+style = "bold green"
+
+
+
+
+[git_commit]
+
+format = '[on](text dimmed) [ $hash$tag]($style) '
+
+style = "bold green"
+
+tag_disabled = false
+
+tag_symbol = "  "
+
+
+
+
+[git_state]
+
+style = "bold yellow"
+
+
+
+
+[git_status]
+
+style = "bold maroon"
+
+format = '[$all_status$ahead_behind]($style)'
+
+renamed = "󰆾 "
+
+conflicted = "󰞇 "
+
+up_to_date = " "
+
+# untracked = " "
+
+# untracked = " "
+
+untracked = "󱄁 "
+
+modified = " "
+
+deleted = " "
+
+stashed = "󰏗 "
+
+staged = '[++$count](green) '
+
+diverged = "⇕⇡($ahead_count)⇣($behind_count) "
+
+ahead = "⇡$count "
+
+behind = "⇣$count "
+
+
+
+
+# === 1st Line: right hand side ===
+
+[cmd_duration]
+
+format = "[ $duration]($style)"
+
+style = "flamingo"
+
+
+
+
+[direnv]
+
+disabled = true
+
+
+
+
+[nodejs]
+
+symbol = "󰎙 "
+
+format = '[$symbol($version )]($style)'
+
+
+
+
+[python]
+
+symbol = "󰌠 "
+
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+# it's possible to show pyenv version
+
+
+
+
+[rust]
+
+symbol = " "
+
+format = '[$symbol($version )]($style)'
+
+
+
+
+[docker_context]
+
+symbol = " "
+
+format = '[$symbol$context]($style) '
+
+
+
+
+[vagrant]
+
+symbol = "⍱ "
+
+format = '[$symbol($version )]($style)'
+
+
+
+
+[java]
+
+symbol = " "
+
+style = "bold red"
+
+format = '[${symbol}(${version} )]($style)'
+
+
+
+
+[golang]
+
+symbol = "󰟓 "
+
+format = '[$symbol($version )]($style)'
+
+
+
+
+[package]
+
+symbol = " "
+
+format = "[$symbol$version]($style) "
+
+
+
+
+[aws]
+
+symbol = " "
+
+format = "[$symbol($profile )(\\($region\\) )(\\[$duration\\] )]($style)"
+
+expiration_symbol = "󰃰"
+
+
+
+
+[lua]
+
+symbol = " "
+
+format = "[$symbol($version )]($style)"
+
+
+
+
+[ruby]
+
+symbol = " "
+
+format = "[$symbol($version )]($style)"
+
+
+
+
+[bun]
+
+format = "[$symbol($version )]($style)"
+
+symbol = " "
+
+
+
+
+[conda]
+
+format = "[$symbol$environment]($style) "
+
+# ignore_base = false
+
+
+
+
+[container]
+
+symbol = ""
+
+
+
+
+[haskell]
+
+symbol = " "
+
+format = "[$symbol($version )]($style)"
+
+
+
+
+[jobs]
+
+symbol = ""
+
+# symbol = ""
+
+# symbol = ""
+
+# symbol = ""
+
+# symbol = "✦"
+
+
+
+
+[swift]
+
+symbol = " "
+
+format = "[$symbol($version )]($style)"
+
+
+
+
+[terraform]
+
+symbol = " "
+
+format = "[$symbol$workspace]($style) "
+
+
+
+
+# === Colour palettes ===
+
+[palettes.catppuccin_latte]
+
+rosewater = "#dc8a78"
+
+flamingo = "#dd7878"
+
+pink = "#ea76cb"
+
+mauve = "#8839ef"
+
+red = "#d20f39"
+
+maroon = "#e64553"
+
+peach = "#fe640b"
+
+yellow = "#df8e1d"
+
+green = "#40a02b"
+
+teal = "#179299"
+
+sky = "#04a5e5"
+
+sapphire = "#209fb5"
+
+blue = "#1e66f5"
+
+lavender = "#7287fd"
+
+text = "#4c4f69"
+
+subtext1 = "#5c5f77"
+
+subtext0 = "#6c6f85"
+
+overlay2 = "#7c7f93"
+
+overlay1 = "#8c8fa1"
+
+overlay0 = "#9ca0b0"
+
+surface2 = "#acb0be"
+
+surface1 = "#bcc0cc"
+
+surface0 = "#ccd0da"
+
+base = "#eff1f5"
+
+mantle = "#e6e9ef"
+
+crust = "#dce0e8"
+
+
+
+
+[palettes.catppuccin_frappe]
+
+rosewater = "#f2d5cf"
+
+flamingo = "#eebebe"
+
+pink = "#f4b8e4"
+
+mauve = "#ca9ee6"
+
+red = "#e78284"
+
+maroon = "#ea999c"
+
+peach = "#ef9f76"
+
+yellow = "#e5c890"
+
+green = "#a6d189"
+
+teal = "#81c8be"
+
+sky = "#99d1db"
+
+sapphire = "#85c1dc"
+
+blue = "#8caaee"
+
+lavender = "#babbf1"
+
+text = "#c6d0f5"
+
+subtext1 = "#b5bfe2"
+
+subtext0 = "#a5adce"
+
+overlay2 = "#949cbb"
+
+overlay1 = "#838ba7"
+
+overlay0 = "#737994"
+
+surface2 = "#626880"
+
+surface1 = "#51576d"
+
+surface0 = "#414559"
+
+base = "#303446"
+
+mantle = "#292c3c"
+
+crust = "#232634"
+
+
+
+
+[palettes.catppuccin_macchiato]
+
+rosewater = "#f4dbd6"
+
+flamingo = "#f0c6c6"
+
+pink = "#f5bde6"
+
+mauve = "#c6a0f6"
+
+red = "#ed8796"
+
+maroon = "#ee99a0"
+
+peach = "#f5a97f"
+
+yellow = "#eed49f"
+
+green = "#a6da95"
+
+teal = "#8bd5ca"
+
+sky = "#91d7e3"
+
+sapphire = "#7dc4e4"
+
+blue = "#8aadf4"
+
+lavender = "#b7bdf8"
+
+text = "#cad3f5"
+
+subtext1 = "#b8c0e0"
+
+subtext0 = "#a5adcb"
+
+overlay2 = "#939ab7"
+
+overlay1 = "#8087a2"
+
+overlay0 = "#6e738d"
+
+surface2 = "#5b6078"
+
+surface1 = "#494d64"
+
+surface0 = "#363a4f"
+
+base = "#24273a"
+
+mantle = "#1e2030"
+
+crust = "#181926"
+
+
+
+
+[palettes.catppuccin_mocha]
+
+rosewater = "#f5e0dc"
+
+flamingo = "#f2cdcd"
+
+pink = "#f5c2e7"
+
+mauve = "#cba6f7"
+
+red = "#f38ba8"
+
+maroon = "#eba0ac"
+
+peach = "#fab387"
+
+yellow = "#f9e2af"
+
+green = "#a6e3a1"
+
+teal = "#94e2d5"
+
+sky = "#89dceb"
+
+sapphire = "#74c7ec"
+
+blue = "#89b4fa"
+
+lavender = "#b4befe"
+
+text = "#cdd6f4"
+
+subtext1 = "#bac2de"
+
+subtext0 = "#a6adc8"
+
+overlay2 = "#9399b2"
+
+overlay1 = "#7f849c"
+
+overlay0 = "#6c7086"
+
+surface2 = "#585b70"
+
+surface1 = "#45475a"
+
+surface0 = "#313244"
+
+base = "#1e1e2e"
+
+mantle = "#181825"
+
+crust = "#11111b"
+
+
+
+
+[palettes.cyberpunk]
+
+rosewater = "#ff79c6"  # Light pink
+
+flamingo = "#bd93f9"   # Purple
+
+pink = "#ff92df"       # Brighter pink
+
+mauve = "#bd93f9"      # Purple
+
+red = "#ff5555"        # Bright red (for contrast)
+
+maroon = "#ff79c6"     # Light pink
+
+peach = "#ffb86c"      # Orange (for contrast)
+
+yellow = "#f1fa8c"     # Neon yellow (for contrast)
+
+green = "#50fa7b"      # Neon green (for contrast)
+
+teal = "#8be9fd"       # Cyan
+
+sky = "#8be9fd"        # Cyan
+
+sapphire = "#62d6e8"   # Light blue
+
+blue = "#57c7ff"       # Bright blue
+
+lavender = "#b4befe"   # Light purple
+
+text = "#f8f8f2"       # Light text
+
+subtext1 = "#bfbfbf"   # Lighter gray
+
+subtext0 = "#a6adc8"   # Light gray
+
+overlay2 = "#9399b2"   # Gray
+
+overlay1 = "#7f849c"   # Darker gray
+
+overlay0 = "#6c7086"   # Even darker gray
+
+surface2 = "#414558"   # Dark blue-gray
+
+surface1 = "#282a36"   # Darker blue-gray
+
+surface0 = "#1e1f29"   # Very dark blue-gray
+
+base = "#191a21"       # Almost black
+
+mantle = "#13141a"     # Darker almost black
+
+crust = "#0b0c0f"      # Blackest black
+
+
+
+
+ [os.symbols]
+
+# Alpine = " "
+
+# Arch = " "
+
+# CentOS = " "
+
+ Debian = " "
+
+# Fedora = " "
+
+# Gentoo = " "
+
+# Macos = " "
+
+# Manjaro = " "
+
+# Mint = " "
+
+# NixOS = " "
+
+# openSUSE = " "
+
+# SUSE = " "
+
+# Raspbian = " "
+
+# Ubuntu = " "
+
+# RedHatEnterprise = " "
+
+# Linux = " "
+
+# Windows = " "
+
+# AlmaLinux = " "
+
+# Kali = " "
+
+# RockyLinux = " "
+
+# Unknown = " "
