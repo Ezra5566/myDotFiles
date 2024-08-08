@@ -9,7 +9,7 @@
    - ├──  LESGO
    - │  └──  summaries4-projects
    - └──  mv
-
+# HIDDEN
    .
 ├── .config/ $XDG_CONFIG_HOME --> app specific configs
 │   ├── nvim
