@@ -1,4 +1,4 @@
-(view as is broo ><)
+(view as code broo ><)
 
 # PROJECT.FILES          
    - ├──  Project_files/
