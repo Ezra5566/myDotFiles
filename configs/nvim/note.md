@@ -34,6 +34,7 @@
 │   └── known_hosts
 └── oh.shit.here.we.go.again.................
 
+# INSTALL:
 dependancies
 fzf
 eza
