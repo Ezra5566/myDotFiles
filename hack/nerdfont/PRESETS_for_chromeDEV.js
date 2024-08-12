@@ -23,4 +23,19 @@ term_.prefs_.set('user-css-text',
                   x-row {
                       text-rendering: optimizeLegibility;
                       font-variant-ligatures: 
+                      }`);
+
+term_.prefs_.set('font-family', 'IBM Plex Mono Nerd Font, monospace');
+term_.prefs_.set('user-css-text', 
+                 `@font-face {
+                     font-family: "IBM Plex Mono Nerd Font"; 
+                     src: url("http://localhost:8080/BlexMonoNerdFont-Regular.ttf"); 
+                     font-weight: normal; 
+                     font-style: normal;
+                  }
+                  x-row {
+                      text-rendering: optimizeLegibility;
+                      font-variant-ligatures: normal;
+                  }`);
+
 
