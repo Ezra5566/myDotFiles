@@ -137,9 +137,17 @@ _fzf_comprun() {
   *) fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
+#--------------------------zoxide----------------------------------
+
+eval "$(zoxide init bash)"
+
 #-----------starship prompt config-----------------------------------
 
 eval "$(starship init bash)"
+
+#--------------------terminal nerdfont{temporary for deault chrome terminal}------
+
+(cd ~/.hacks/nerdfont; nohup python3 server.py > /dev/null 2> /dev/null & )
 
 #--------------disable prompt in warp-terminall--------------------
 
