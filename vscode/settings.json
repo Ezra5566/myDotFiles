@@ -1,0 +1,127 @@
+{
+    // open json editor for settings
+    "workbench.settings.editor": "json",
+
+    // Theme
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+
+    // Change font
+    "editor.fontFamily": "SpaceMono Nerd Font Propo",
+    "scm.inputFontFamily": "OverpassM Nerd Font Mono",
+    "terminal.integrated.fontFamily": "SpaceMono Nerd Font Propo",
+    "chat.editor.fontFamily": "OverpassM Nerd Font Mono",
+    "debug.console.fontFamily": "OverpassM Nerd Font Mono",
+    "editor.codeLensFontFamily": "OverpassM Nerd Font Mono",
+    "notebook.output.fontFamily": "OverpassM Nerd Font Mono",
+    "markdown.preview.fontFamily": "OverpassM Nerd Font Mono",
+    "editor.inlayHints.fontFamily": "OverpassM Nerd Font Mono",
+
+    // Font size
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 14,
+
+    // ui
+    "editor.minimap.enabled": false,
+    "window.commandCenter": false,
+    "editor.scrollbar.vertical": "auto",
+    "window.titleBarStyle": "custom",
+    "editor.scrollbar.horizontal": "auto",
+
+    // APC
+    "apc.activityBar": {
+      "position": "bottom",
+      "hideSettings": true,
+      "size": 28
+    },
+    "apc.electron": {
+      "titleBarStyle": "hiddenInset",
+      "trafficLightPosition": {
+        "x": 12,
+        "y": 10
+      }
+    },
+    "apc.font.family": "OverpassM Nerd Font Mono",
+    "apc.monospace.font.family": "OverpassM Nerd Font Mono",
+    "apc.statusBar": {
+      "position": "editor-bottom",
+      "height": 28,
+      "fontSize": 12
+    },
+
+    // Cusom css
+    "apc.stylesheet": {
+      ".sidebar > .composite": "height: 12px !important",
+      ".title-label": "display: none !important",
+      ".title-actions": "display: none !important",
+      ".tabs-and-actions-container > .editor-actions": "display: none !important",
+      ".titlebar-center": "display: none !important",
+      ".titlebar-right": "display: none !important",
+      ".inline-tabs-placeholder": "display: none !important",
+      ".split-view-view .visible": "background-color: #110f17 !important"
+    },
+
+    // Aura theme customisation
+    "workbench.colorCustomizations": {
+      "[Aura Dark]": {
+        "editor.background": "#212121",
+        "terminal.background": "#212121",
+        "activityBar.background": "#212121",
+        "statusBar.background": "#212121",
+        "editorGroupHeader.tabsBackground": "#212121",
+        "tab.inactiveBackground": "#212121"
+      }
+    },
+
+    // Toggle excluded files
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/.husky": true,
+      "**/drizzle": true,
+      "**/dist": true,
+      "**/.todo.md": true,
+      "**/.vscode": true,
+      "**/.eslintrc.cjs": true,
+      "**/.editorconfig": true,
+      "**/.gitignore": true,
+      "**/.lintstagedrc.mjs": true,
+      "**/.markdownlint.json": true,
+      "**/.markdownlintignore": true,
+      "**/.prettierignore": true,
+      "**/bun.lockb": true,
+      "**/cspell.json": true,
+      "**/package-lock.json": true,
+      "**/pnpm-lock.yaml": true,
+      "**/next-env.d.ts": true,
+      "**/postcss.config.cjs": true,
+      "**/prettier.config.js": true,
+      "**/README.md": true,
+      "**/next.config.js": true,
+      "**/tailwind.config.ts": true,
+      "**/drizzle.config.ts": true,
+      "**/migrate.ts": true,
+      "**/.env.example": false
+    },
+
+    // Misc
+    "workbench.startupEditor": "none",
+    "explorer.compactFolders": false,
+    "editor.tabSize": 2,
+    "editor.linkedEditing": true,
+    "breadcrumbs.filePath": "off",
+    "files.trimTrailingWhitespace": true,
+    "[markdown]": {
+      "files.trimTrailingWhitespace": false
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "window.zoomLevel": 0.75,
+    "workbench.iconTheme": "a-file-icon-vscode",
+    "workbench.productIconTheme": "a-file-icon-vscode-product-icon-theme",
+}
