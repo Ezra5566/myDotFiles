@@ -25,6 +25,7 @@ term_.prefs_.set('user-css-text',
                       font-variant-ligatures: 
                       }`);
 
+
 term_.prefs_.set('font-family', 'IBM Plex Mono Nerd Font, monospace');
 term_.prefs_.set('user-css-text', 
                  `@font-face {
@@ -37,5 +38,20 @@ term_.prefs_.set('user-css-text',
                       text-rendering: optimizeLegibility;
                       font-variant-ligatures: normal;
                   }`);
+
+
+term_.prefs_.set('font-family', 'Space Mono Nerd Font, monospace');
+term_.prefs_.set('user-css-text', 
+                 `@font-face {
+                     font-family: "Space Mono Nerd Font"; 
+                     src: url("http://localhost:8080/SpaceMonoNerdFont-Regular.ttf"); 
+                     font-weight: normal; 
+                     font-style: normal;
+                  }
+                  x-row {
+                      text-rendering: optimizeLegibility;
+                      font-variant-ligatures: normal;
+                  }`);
+
 
 
