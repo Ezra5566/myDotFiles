@@ -164,6 +164,19 @@ return {
   -- nightfox
   -- kanagawa
   -- catppuccin
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+    keys = {
+      { "<leader>cl", "<cmd>Telescope colorscheme<cr>", desc = "Select Colorscheme with Preview" },
+    },
+    config = function()
+      require("catppuccin").setup({
+        transparent_background = true,
+      })
+    end,
+  },
   -- vscode
   -- moonbow
   -- darcula (JetBrains Intellij IDEA default theme)
