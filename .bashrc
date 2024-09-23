@@ -1,8 +1,19 @@
+# =================================================================================
+# ███████╗███████╗███████╗            ██████╗  █████╗ ███████╗██╗  ██╗██████╗  ██████╗
+# ██╔════╝╚══███╔╝╚══███╔╝            ██╔══██╗██╔══██╗██╔════╝██║  ██║██╔══██╗██╔════╝
+# █████╗    ███╔╝   ███╔╝             ██████╔╝███████║███████╗███████║██████╔╝██║     
+# ██╔══╝   ███╔╝   ███╔╝              ██╔══██╗██╔══██║╚════██║██╔══██║██╔══██╗██║     
+# ███████╗███████╗███████╗    ███████╗██████╔╝██║  ██║███████║██║  ██║██║  ██║╚██████╗
+# ╚══════╝╚══════╝╚══════╝    ╚══════╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
+# =================================================================================                                                                                  
+
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
 # If not running interactively, don't do anything
+
 case $- in
 *i*) ;;
 *) return ;;
@@ -70,7 +81,7 @@ xterm* | rxvt*)
   ;;
 *) ;;
 esac
-
+#-----------------------------------------------default aliases--------------------------------------------------
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -91,11 +102,11 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='eza --tree --level=2 -long --git --icons=always --color=always'
 alias ls='eza --tree --level=2 --color=always --long --git --icons=always --no-time --no-user --no-permissions'
-#other alias I need
+#------------------------------------------------------------other alias I need------------------------------------
 
 alias fzf='fzf --height 40% --layout=reverse --border --preview "bat --style=numbers --color=always {}"'
 alias lz='lazygit'
-
+alias vv='nala list'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -104,6 +115,7 @@ alias lz='lazygit'
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
+# -------------------------------------above is linked to ~/.bash_aliases-------------------------------------------
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -115,10 +127,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-#---------------fzf config-----------------------------------------
+#--------------------------------------------fzf config-------------------------------------------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-eval "$(fzf --bash)"
+# eval "$(fzf --bash)"
 
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
@@ -137,20 +149,38 @@ _fzf_comprun() {
   *) fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
-#--------------------------zoxide----------------------------------
+#--------------------------------------------------tmux config path ------------------------------------------------- 
+
+export TMUX_CONF_PATH=~/.config/tmux/tmux.conf
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+export PATH=$PATH:/home/ezraodyn/go/bin  # Add go to path
+
+#-------------------------------------------------zoxide-------------------------------------------------------------
 
 eval "$(zoxide init bash)"
 
-#-----------starship prompt config-----------------------------------
+#----------------------------------------starship prompt config------------------------------------------------------
 
 eval "$(starship init bash)"
 
-#--------------------terminal nerdfont{temporary for deault chrome terminal}------
+#--------------------terminal nerdfont{temporary for deault chrome terminal}-----------------------------------------
 
 (cd ~/.hacks/nerdfont; nohup python3 server.py > /dev/null 2> /dev/null & )
 
-#--------------disable prompt in warp-terminall--------------------
+#-----------------------------------disable prompt in warp-terminall-------------------------------------------------
 
 if [ -f /etc/motd ]; then
   sudo mv /etc/motd /etc/motd.bak
 fi
+
+#----------------------nala bash_completions --------------------- 
+source '/home/ezraodyn/.bash_completions/nala.sh'
+#-----------------------atuin history competions-------------------
+#-----------------------------------------------------------------------
+
+
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
