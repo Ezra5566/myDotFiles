@@ -1,0 +1,174 @@
+########################################
+# prompt global settings
+########################################
+
+# document link: https://starship.rs/ja-JP/config/#%E3%83%95%E3%82%9A%E3%83%AD%E3%83%B3%E3%83%95%E3%82%9A%E3%83%88
+# format = "$all"
+format = """
+$custom\
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$env_var\
+$crystal\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\n\
+$character"""
+add_newline = true
+
+########################################
+# prompt detail settings
+########################################
+
+[username]
+disabled = true
+show_always = true
+style_user = "white bold"
+style_root = "white bold"
+format = "user: [$user]($style) "
+
+[directory]
+# truncation_length = 3
+truncate_to_repo = true
+style = "bold cyan"
+
+## Git settings
+[git_branch]
+# ignore_branches = ["main", "master"]
+symbol = "  " 
+truncation_length = 100  # no truncation
+truncation_symbol = "..."
+style = "bold green"
+
+[git_status]
+deleted = " "
+untracked = "U"
+modified = "M"
+staged = "+"
+renamed =" " # "R" 
+conflicted = "🏳"
+ahead = "⇡"  # unpushed commit
+behind = "😰"
+diverged = "😵"
+stashed = "📦"
+up_to_date = "✓"
+style = "bold red"
+
+[git_state]
+rebase = "REBASING"
+merge = "MERGING"
+cherry_pick = "🍒 PICKING"
+
+## Memory
+[memory_usage]
+disabled = false
+threshold = 30  ## if memory usage is over 30%, show memory usage
+# format = 'via $symbol [$ram_pct, $ram \($swap_pct, $swap\) ]($style)'
+format = 'via $symbol [$ram_pct \($ram\) ]($style)'
+symbol = " 󰍛 " # " "  # "🧠"
+style = "bold dimmed green"
+# style = "bold gray"
+
+[jobs]
+# doc: https://starship.rs/config/#jobs
+symbol = "🏃‍♂️ "
+threshold = 1
+
+[battery]
+disabled = false
+full_symbol = "󱟢 "  # "🔋 "
+charging_symbol = "⚡"
+discharging_symbol = " 󱟤 "
+[[battery.display]]
+threshold = 50
+style = "bold green"
+
+[time]
+disabled = true
+format = "at 󰃭 [$time]($style) "
+style = "bold yellow"
+use_12hr = true
+time_format = "%Y/%m/%d %I:%M:%S %p"
+utc_time_offset = "+9"
+time_range = "-"
+
+
+[line_break]
+disabled = true # separate prompt into 2 lines
+
+[character]
+# symbol = "🍺"
+disabled = false
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red) "
+
+[aws]
+# format = "on [$symbol$profile(\($region\))]($style) ""
+disabled = false
+# format = ""
+style = "bold blue"
+symbol = "AWS Region: "
+
+########################################
+# disabled: prompt detail settings
+########################################
+
+[gcloud]
+disabled = true
+
+[aws.region_aliases]
+# ap-northeast-1 = "an1"
+ap-southeast-2 = "au"
+us-east-1 = "va"
+
+########################################
+# custom prompt (ref: https://starship.rs/ja-JP/config/#custom-commands)
+########################################
+
+[custom.gitconfig_username]
+disabled = false
+command = "git config user.name"
+require_repo = false
+when = true
+symbol=" 󰊤 "
+style = "bold white"
