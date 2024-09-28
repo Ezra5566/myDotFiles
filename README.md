@@ -31,9 +31,8 @@ stow --target ~/.config .
 
 |                                                         |                                                 |
 |---------------------------------------------------------|-------------------------------------------------|
-|[rose-pine](https://github.com/rose-pine/neovim)         | <img src="rose-pine.png" alt="rose-pine theme" width="330" height="250" title="rose-pine theme">  |
-|[tokyonight](https://github.com/folke/tokyonight.nvim)   |<img src="tokyonight.png" alt="tokyonight theme" width="330" height="250" title="tokyonight theme">  |
-|[gruvbox](https://github.com/ellisonleao/gruvbox.nvim)   |<img src="gruvbox.png" alt="gruvbox theme" width="330" height="250" title="gruvbox theme">  |
+|[catppuccin](https://github.com/catppuccin.nvim)   |<img src="images/catpuccin.png" alt="tokyonight theme" width="330" height="250" title="tokyonight theme">  |
+|[gruvbox](https://github.com/ellisonleao/gruvbox.nvim)   |<img src="images/gruvbox.png" alt="gruvbox theme" width="330" height="250" title="gruvbox theme">  |
 
 ## Switch theme
 
